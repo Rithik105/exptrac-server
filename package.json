@@ -1,0 +1,32 @@
+{
+  "name": "exptrac-server",
+  "version": "1.0.0",
+  "description": "Backend API for ExpTrac expense tracking application",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "keywords": [
+    "expense",
+    "node",
+    "express",
+    "backend"
+  ],
+  "author": "Rithik Raj",
+  "license": "MIT",
+  "dependencies": {
+    "@prisma/client": "^6.19.2",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.2.4",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^8.23.0",
+    "node-cron": "^4.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11",
+    "prisma": "^6.19.2"
+  }
+}
