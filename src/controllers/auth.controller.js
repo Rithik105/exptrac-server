@@ -4,6 +4,9 @@ const {
   refreshService,
   logoutService,
   logoutAllService,
+  verifyOtpService,
+  resetPasswordService,
+  forgotPasswordService,
 } = require("../services/auth.service");
 
 const signup = async (req, res, next) => {
@@ -51,4 +54,40 @@ const logoutAll = async (req, res, next) => {
   }
 };
 
-module.exports = { signup, login, refresh, logout, logoutAll };
+const forgotPassword = async (req, res, next) => {
+  try {
+    const result = await forgotPasswordService(req.body);
+    res.status(200).json(result);
+  } catch (e) {
+    next(e);
+  }
+};
+
+const verifyOtp = async (req, res, next) => {
+  try {
+    const result = await verifyOtpService(req.body);
+    res.status(200).json(result);
+  } catch (e) {
+    next(e);
+  }
+};
+
+const resetPassword = async (req, res, next) => {
+  try {
+    const result = await resetPasswordService(req.body);
+    res.status(200).json(result);
+  } catch (e) {
+    next(e);
+  }
+};
+
+module.exports = {
+  signup,
+  login,
+  refresh,
+  logout,
+  logoutAll,
+  resetPassword,
+  forgotPassword,
+  verifyOtp,
+};

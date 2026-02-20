@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "PasswordResetOTP" ADD COLUMN     "lastRequestedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP;

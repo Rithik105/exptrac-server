@@ -24,6 +24,7 @@ model User {
   expenses     Expense[]  
   categories   Category[] 
   refreshToken RefreshToken[]
+  passwordResetTicket PasswordResetTicket[]
 }
 
 model Category {
@@ -61,4 +62,18 @@ model RefreshToken{
   userId    String 
   createdAt DateTime @default(now())
   expiresAt DateTime
+}
+
+model PasswordResetTicket{
+  id        String   @id @default(uuid())
+  otp       String  
+  token     String? 
+  userId    String   @unique
+  createdAt DateTime @default(now())
+  lastRequestedAt DateTime @default(now())
+  expiresAt DateTime
+  tokenExpiresAt DateTime?
+  attempts Int @default(0)
+
+  user      User     @relation(fields:[userId],references:[id],onDelete:Cascade)
 }
