@@ -10,6 +10,16 @@ const mailer = nodemailer.createTransport({
   },
 });
 
+const verify = async (req, res) => {
+  try {
+    await mailer.verify();
+    return res.status(200).send("SMTP CONNECTION OK");
+  } catch (err) {
+    console.error("SMTP VERIFY ERROR:", err);
+    return false;
+  }
+};
+
 const sendEmail = async (to, otp) => {
   const subject = "Password Reset";
   const html = `<div style="
@@ -67,4 +77,4 @@ const sendEmail = async (to, otp) => {
   });
 };
 
-module.exports = { sendEmail };
+module.exports = { sendEmail, verify };

@@ -1,3 +1,6 @@
+const dns = require("dns");
+
+console.log("DNS order:", dns.getDefaultResultOrder());
 const server = require("./app");
 
 const port = process.env.PORT || "3000";
