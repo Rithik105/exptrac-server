@@ -15,6 +15,7 @@
   "author": "Rithik Raj",
   "license": "MIT",
   "dependencies": {
+    "@getbrevo/brevo": "^4.0.1",
     "@prisma/client": "^6.19.2",
     "bcrypt": "^6.0.0",
     "dotenv": "^17.2.4",
